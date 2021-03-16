@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'font1';
+  src: url('font/font1.woff');
+}
+
+@font-face {
+  font-family: 'font2';
+  src: url('font/font2.woff');
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.cake {
+  display: block;
+  width: 920px;
+  margin: 4em auto 0 auto;
+  border: 1px solid transparent;
+}
+
+.font1 {
+  font-family: 'font1', 'Segoe Print', 'cursive', 'sans-serif';
+  font-size: 1em;
+}
+
+.font2 {
+  font-family: 'font2', 'Segoe Print', 'cursive', 'sans-serif';
+  font-size: 1.5em;
+}
+
+.font3, .cursive {
+  font-family: 'Segoe Print', 'cursive', 'sans-serif';
+  font-size: 1em;
+}
+
+.form-control {
+  margin-bottom: 5px;
+}
+
+.form-control label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.icing {
+  display: block;
+  text-align: center;
+
+  min-width: 414px;
+  max-width: 100%;
+  width: 80%;
+
+  min-height: 5.5em;
+  max-height: 7em;
+  overflow: hidden;
+
+  background: transparent;
+  border: none;
+  line-height: 1.6em;
+  font-size: 2.5em;
+
+  clear: both;
+  margin: 72px auto 0 auto;
+}
+
+.icing.font2 {
+  font-size: 4em;
+  margin-top: 64px;
+  line-height: 1em;
+}
+
+.floaty{
+  position: absolute;
+}
+
+.ghost {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.show {
+  opacity : 1;
+  transition: opacity 1s;
+}
+
+.banner {
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
+}
+
+.w4h {
+  width: 10rem;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="h-100 overflow-hidden cursive">
+  <head>
+    <title>Schreibe eine Nachricht als Kuchenverzierung!</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tachyons.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="h-100">
+    <main
+      id="app"
+      class="ph2 h-100 ba b--gray"
+      :style="{ background : bgColour }"
+    >
+      <div class="flex items-center justify-between mb2 pt3">
+        <div class="mh2 f3">
+          <label for="from">Von: </label>
+          <input
+            name="from"
+            v-model="from"
+            placeholder="Absender-Name"
+            class="bg-transparent bl-0 bt-0 br-0 bb bw2 b--gray w4h"
+          />
+        </div>
+
+        <div class="mh2 ba br-pill pa2 bg-near-white" v-if="!readOnly">
+          <span
+            class="mh1 pointer"
+            v-for="f in fonts"
+            :class="['font' + f.id]"
+            @click="font = f.id"
+          >
+            {{f.name}}
+          </span>
+        </div>
+
+        <div class="mh2" v-if="!readOnly">
+          <select class="f4" v-model="icingColour">
+            <option
+              v-for="ic in icingColours"
+              :class="['pointer']"
+              :value="ic.id"
+            >
+              {{ic.name}}
+            </option>
+          </select>
+        </div>
+
+        <div class="mh2 ba br-pill pa2 bg-near-white" v-if="!readOnly">
+          <img
+            class="w2 ma1 mh2 pointer"
+            v-for="c in cakes"
+            @click="cake = c.id"
+            :src="'img/cake' + c.id + '.png'"
+          />
+        </div>
+
+        <div>
+          <button
+            class="br-pill pa2 f4 ba bw2 b--gray mr2 pointer"
+            @click="copy"
+            title="URL kopieren"
+            v-if="!readOnly"
+          >
+            <span>URL kopieren</span>
+            <span :class="[copied ? 'show' : 'ghost']">✅</span>
+          </button>
+          <button
+            class="br-pill pa2 f4 ba bw2 b--gray mr3 pointer"
+            @click="startEditing"
+          >
+            {{ readOnly ? 'Selbst erstellen' : 'Neu beginnen' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="cake z-999" :style="imgStyle">
+        <textarea
+          :class="['icing', 'font' + font]"
+          :style="{ 'color': icingColour }"
+          v-bind:disabled="readOnly"
+          v-model="message"
+        ></textarea>
+        <img class="hidden" :src="cakeUrl" />
+      </div>
+
+    </main>
+    <script src="vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
